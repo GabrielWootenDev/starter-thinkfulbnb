@@ -102,7 +102,7 @@ form select,
 form input {
   margin-bottom: 20px;
   width: 60%;
-  justify-self: right;
+  justify-content: right;
 }
 
 form button {
