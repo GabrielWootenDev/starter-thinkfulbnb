@@ -42,6 +42,12 @@ main img {
   flex-direction: column;
 }
 
+/* form-group is only used in our form elements to easier manipulate the placement of fields */
+.form-group {
+  display: flex;
+  flex-direction: row;
+}
+
 .item {
   flex: 1;
   margin: 10px;
@@ -71,7 +77,7 @@ header {
 
 /* added some styling to the default here to align our nav buttons and keep them together in one row */
 header nav ul li {
-  display:inline-block;
+  display: inline-block;
   list-style-type: none;
   margin-bottom: 20px;
 }
@@ -97,13 +103,6 @@ form {
 form label {
   font-weight: bold;
 }
-/*This code below keeps our select and input fields fully to the right of each respective label */
-form select,
-form input {
-  margin-bottom: 20px;
-  width: 60%;
-  float: right;
-}
 
 form button {
   background-color: #ff385c;
@@ -113,7 +112,16 @@ form button {
   padding: 15px;
   width: 100%;
 }
+/*This code below keeps our select and input fields fully to the right of each respective label */
+.form-label {
+  flex: 1;
+  margin: 10px;
+}
 
+.form-input {
+  justify-content: right;
+  margin: 10px;
+}
 
 /* -------  Footer ------- */
 
@@ -128,32 +136,38 @@ footer p {
 }
 
 /* -------  Media Query ------- */
-@media all and (min-width: 684px) {
+/* I have two breakpoints here because the form box starts looking really bad around 670px and less so I switch it early and completely transition to the full mobile layout at 480px and below */ 
+@media all and (min-width: 680px) {
+  /*changes our flex direction from column to row in our form as the screen gets bigger */
   form {
     flex-direction: row;
   }
 
+  /*this represents the groups of our main content, containing the images and text, changing from columns to rows and keeping items centered as the screen size increases */
   .group {
-    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
 
-  .vacation-form .item {
-    display: flex block;
+  .form-label,
+  .form-input {
+    margin: 0;
+  }
+
+  .form-group {
+    display: flex;
     flex: 1 1 auto;
     flex-direction: column;
   }
- 
-  .item label
-  , .item input 
-  , .item select 
-  , .item button{
-    display: flex;
-    width: 100%
-  }
 
+  .form-label label,
+  .form-input input,
+  .form-input select {
+    display: flex;
+    width: 65%;
+  }
+  /*this class is only used on the larger screens, it changes our "ideas" section to 2 columns of 2 rather than 1 column of 4 */
   .lg-Column {
     display: flex;
     flex-direction: column;
@@ -164,10 +178,9 @@ footer p {
   }
 }
 @media all and (min-width: 480px) {
-
   header {
     background-color: #ff385c;
-    justify-content:space-between;
+    justify-content: space-between;
     display: flex;
     flex-direction: row;
     padding: 0;
@@ -183,17 +196,14 @@ footer p {
     padding: 0;
   }
 
-
   main img {
     display: flex;
     flex-direction: row;
     max-width: 100%;
   }
 
-
   .logo {
     font-size: 36px;
     margin: 10px;
   }
-
 }

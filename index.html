@@ -35,30 +35,48 @@
       <section id="stay">
         <h2>Find the perfect vacation rental</h2>
         <!-- Create a form here -->
+        <!-- This form is broken up into multiple divs for easier manipulation in CSS-->
         <form class="vacation-form group">
-          <div class="item">
-            <label for="location">Location</label>
-            <input id="location" type="text" name="location" required />
+          <!-- .form-group only contains each form label/form input pair-->
+          <div class="form-group">
+            <div class="form-label">
+              <label for="location">Location</label>
+            </div>
+            <div class="form-input">
+              <input id="location" type="text" name="location" required />
+            </div>
           </div>
-          <div class="item">
-            <label for="arrive">Arrive</label>
-            <input id="arrive" type="date" name="arrive" required />
+          <div class="form-group">
+            <div class="form-label">
+              <label for="arrive">Arrive</label>
+            </div>
+            <div class="form-input">
+              <input id="arrive" type="date" name="arrive" required />
+            </div>
           </div>
-          <div class="item">
-            <label for="depart">Depart</label>
-            <input id="depart" type="date" name="depart" required />
+          <div class="form-group">
+            <div class="form-label">
+              <label for="depart">Depart</label>
+            </div>
+            <div class="form-input">
+              <input id="depart" type="date" name="depart" required />
+            </div>
           </div>
-          <div class="item">
-            <label for="rentalType">Type</label>
-            <select name="rentalType" id="rentalType" size="1">
-              <option value="apartment">Apartment</option>
-              <option value="barn">Barn</option>
-              <option value="castle">Castle</option>
-              <option value="houseboat">Houseboat</option>
-              <option value="tinyhouse">Tiny House</option>
-              <option value="yacht">Yacht</option>
-              <option value="yurt">Yurt</option>
-            </select>
+          <div class="form-group">
+            <div class="form-label">
+              <label for="rentalType">Type</label>
+            </div>
+            <div class="form-input">
+              <select name="rentalType" id="rentalType" size="1">
+                <option value="apartment">Apartment</option>
+                <option value="barn">Barn</option>
+                <option value="castle">Castle</option>
+                <option value="houseboat">Houseboat</option>
+                <option value="tinyhouse">Tiny House</option>
+                <option value="yacht">Yacht</option>
+                <option value="yurt">Yurt</option>
+              </select>
+            </div>
           </div>
           <div class="item">
             <button type="submit">Search</button>
